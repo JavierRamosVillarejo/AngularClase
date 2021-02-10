@@ -14,35 +14,35 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   usuarios = [
     {
-      nombre : "Manolo",
-      apellido: "Fernandez"
+      nombre : "Fernando",
+      apellido: "Perez"
     },
     {
       nombre : "Javier",
       apellido: "Ramos"
     },
     {
-      nombre : "Pepe",
-      apellido: "Hernandez"
+      nombre : "María",
+      apellido: "Lopez"
     }
   ]
 
   usuarios2: Usuario [] = [
     {
-      nombre : "Juan",
-      apellido: "Fernandez"
+      nombre : "Alberto",
+      apellido: "Ramos"
     },
     {
-      nombre : "Jesus",
-      apellido: "Sepelveda"
+      nombre : "Ana",
+      apellido: "Heras"
     },
     {
-      nombre : "Jaime",
-      apellido: "Lara"
+      nombre : "Laura",
+      apellido: "Martinez"
     }
   ]
 
-  usuario3: Usuario = new Usuario("Javier", "Ramos", 24);
+  usuario3: Usuario = new Usuario("Javier", "Ramos", 26);
 
   numero1 = 0;
   numero2 = 0;

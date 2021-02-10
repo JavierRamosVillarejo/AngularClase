@@ -9,11 +9,12 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
-//import { RegistroComponent } from './componentes/registro/registro.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 import { CrudComponent } from './componentes/crud/crud.component';
 import { RegisterComponent } from './componentes/auth/register/register.component';
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
+import { UserRouterGuard } from './auth/user-router.guard';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path: "contactos", component:CrudContactosComponent},
   {path: "registro", component:RegisterComponent},
   {path: "login", component:LoginComponent},
-  {path: "perfil", component:PerfilComponent},
+  {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path: "**", component:HomeComponent},
 ];
 

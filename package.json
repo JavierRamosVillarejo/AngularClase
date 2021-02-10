@@ -1,5 +1,5 @@
 {
-  "name": "prueba",
+  "name": "proyecto",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,6 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
-    "set-default-browser": "^1.1.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

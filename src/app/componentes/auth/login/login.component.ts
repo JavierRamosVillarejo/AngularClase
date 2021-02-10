@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'src/app/servicios/user.service';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +10,25 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin= this.fb.group({
-    
-    email:['',[Validators.required,Validators.email]],
-    password:['',[Validators.required]]
+  formRegister = this.fb.group({
+    email: ['',[Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
   })
-  constructor(private fb:FormBuilder, private serviciousuario:UserService) {}
+
+  constructor(private fb: FormBuilder, private servicioUser: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.servicioUser.isLoged){
+      // this.router.navigate(['/perfil']);
+    }
   }
 
-  submit():void{
-    this.serviciousuario.acceso(this.formLogin.value).subscribe(
+  submit(): void{
+    this.servicioUser.login(this.formRegister.value).subscribe(
       respuesta => {
-        console.log(respuesta)
-        this.serviciousuario.guardarToken(respuesta)
-      },
-        error => console.log(error)
+        this.servicioUser.guardarToken(respuesta);
+        this.router.navigate(['/perfil']);
+      }, error => console.log(error)
     )
   }
 
