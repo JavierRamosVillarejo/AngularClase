@@ -2,7 +2,10 @@
 
 
 <ul>
-    <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota"> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+    <li [ngClass]='{"text-white bg-dark":nota.idUser}' class="list-group-item"
+        *ngFor="let nota of notas" (click)="nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" 
+     > 
+    <b>{{nota.titulo}}</b> : {{nota.contenido}}{{nota.idUser}} </li>
 </ul>
 <br>
 

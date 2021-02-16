@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { accesoUsuario } from '../clases/user';
 import { loginUser, User } from '../Modelos/user';
 
 const url = 'http://localhost:3000/user/';
@@ -37,4 +38,24 @@ export class UserService {
     return localStorage.getItem('userToken');
   }
 
+  obtenerPerfil(): Observable <any>{
+    return this.http.get(url)
+  }
+
+  acceso (usuario: accesoUsuario): Observable<any>{
+    return this.http.post(url+'login', usuario)
+  }
+
+  leerToken(): string{
+    return localStorage.getItem('userToken')
+  }
+
+  editarPerfil(usuario:User): Observable <any>{
+    return this.http.put(url,usuario)
+
+  }
+
+  eliminarUsuario(): Observable<any>{
+    return this.http.delete(url)
+  }
 }

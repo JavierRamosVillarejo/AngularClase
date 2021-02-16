@@ -12,13 +12,13 @@ import { telefonoValido } from 'src/app/validaciones/tlf-valido';
 export class RegisterComponent implements OnInit {
 
   formRegister = this.fb.group({
-    nombre: ['', [Validators.required]],
-    apellidos: ['',[Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(4)]],
-    password2: ['', [Validators.required, Validators.minLength(4)]],
-    email: ['',[Validators.required, Validators.email]],
-    telefono: [ undefined, [telefonoValido()]],
-    dni: ['',[Validators.required, dniValido()]]
+    nombre:[''],
+    apellidos:[''],
+    password:['', [Validators.required, Validators.minLength(4)]],
+    password2:['', [Validators.required]],
+    email:['', [Validators.required, Validators.email]],
+    telefono:[undefined,[telefonoValido()]],
+    dni:['', [Validators.required, dniValido()]]
 
   })
 
