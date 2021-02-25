@@ -1,0 +1,52 @@
+
+<nav class="navbar navbar-expand-sm sticky-top bg-white">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Angular DAW</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+  
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Tareas Angular
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/about" routerLinkActive="{{estiloActivo}}">About</a>
+              <a class="dropdown-item" routerLink="/loteria" routerLinkActive="{{estiloActivo}}">Lotería</a>
+              <a class="dropdown-item" routerLink="/calculadora" routerLinkActive="{{estiloActivo}}">Calculadora</a>
+              <a class="dropdown-item" routerLink="/tuberias" routerLinkActive="{{estiloActivo}}">Tuberías</a>
+              <a class="dropdown-item" routerLink="/estructuras" routerLinkActive="{{estiloActivo}}">Estructuras</a>
+              <a class="dropdown-item" routerLink="/formulario" routerLinkActive="{{estiloActivo}}">Formulario</a>
+              <a class="dropdown-item" routerLink="/crudlocal" routerLinkActive="{{estiloActivo}}">Crud Local </a>
+              <a class="dropdown-item" routerLink="/crud" routerLinkActive="{{estiloActivo}}">Crud</a>
+              <a class="dropdown-item" routerLink="/listaPerfiles" routerLinkActive="{{estiloActivo}}">Lista de usuarios</a>
+            </div>
+          </div>
+          
+          
+          <ul class="navbar-nav mt-2 mt-lg-0 ">
+              <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/registro" routerLinkActive="{{estiloActivo}}">Registro</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/login" routerLinkActive="{{estiloActivo}}">Login</a>
+              </li>
+          </ng-template>
+          <ng-template #salir>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}">Perfil</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
+              </li>
+          </ng-template>
+          </ul>
+      </div>
+    </div>
+    
+  </nav>
+  
